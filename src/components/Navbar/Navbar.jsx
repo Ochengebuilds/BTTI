@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import './Navbar.css';
@@ -6,34 +7,24 @@ import './Navbar.css';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <header className="navbar-header">
       <nav className="navbar-container">
-        {/* Clean Logo representation - No h1 here to keep page SEO pristine */}
-        <div className="navbar-logo">
+        {/* Wrap logo to route back home instantly */}
+        <Link to="/" className="navbar-logo" onClick={() => setIsOpen(false)}>
           BTTI<span>.</span>
-        </div>
+        </Link>
 
-        {/* Navigation Links - Injects 'active' layout state on mobile viewport trigger */}
         <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
-          <li><a href="#home" onClick={() => setIsOpen(false)}>Home</a></li>
-          <li><a href="#about" onClick={() => setIsOpen(false)}>About</a></li>
-          <li><a href="#academics" onClick={() => setIsOpen(false)}>Academics</a></li>
-          <li><a href="#admissions" onClick={() => setIsOpen(false)}>Admissions</a></li>
-          <li><a href="#contact" onClick={() => setIsOpen(false)}>Contact</a></li>
+          <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
+          <li><Link to="/about" onClick={() => setIsOpen(false)}>About</Link></li>
+          <li><Link to="/academics" onClick={() => setIsOpen(false)}>Academics</Link></li>
+          {/* New Admission link added smoothly here */}
+          <li><Link to="/admissions" onClick={() => setIsOpen(false)}>Admission</Link></li>
+          <li><Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
         </ul>
 
-        {/* Font Awesome Mobile Interaction Toggle Button */}
-        <button 
-          className="navbar-toggle-btn" 
-          onClick={toggleMenu}
-          aria-label="Toggle navigation menu"
-          aria-expanded={isOpen}
-        >
+        <button className="navbar-toggle-btn" onClick={() => setIsOpen(!isOpen)}>
           <FontAwesomeIcon icon={isOpen ? faXmark : faBars} />
         </button>
       </nav>

@@ -1,0 +1,49 @@
+.academics-hero {
+  position: relative;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 160px 20px 100px 20px;
+  text-align: center;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.academics-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.12) 0%, transparent 60%);
+}
+
+.academics-hero-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.academics-tag {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #3b82f6;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.academics-title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin: 0 0 1.5rem 0;
+}
+
+.academics-lead {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  margin: 0;
+}
