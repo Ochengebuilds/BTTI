@@ -1,0 +1,165 @@
+/* ==========================================================================
+   1. Desktop Bento CSS Grid System & Layered Depths
+   ========================================================================== */
+.bento-section {
+  width: 100%;
+  max-width: 1240px;
+  margin: 40px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.bento-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 elegant fluid columns */
+  grid-auto-rows: 240px; /* Base container blocks height metrics */
+  gap: 20px;
+}
+
+/* Base Card Attributes mirroring SOSH.jpg rounded aesthetics */
+.bento-card {
+  background-color: #f8fafc;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+/* Subtle 3D Hover Depth response */
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Text-specific block layouts */
+.text-card {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.bento-tag {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.bento-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.25;
+  margin: 0 0 0.75rem 0;
+}
+
+.bento-text {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Image-specific containment rules to stop clipping */
+.img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Inner card absolute gradients for text readability */
+.bento-overlay-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   2. Absolute Interlocking Positions (Direct SOSH Mapping)
+   ========================================================================== */
+.main-about {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.student-life {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.ict-lab {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+/* Vertical card spans two grid blocks downward */
+.workshop-vertical {
+  grid-column: 4 / 5;
+  grid-row: 1 / 3; 
+}
+
+/* Horizontal card spans two grid blocks wide across */
+.classroom-wide {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+}
+
+.modern-equipment {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+/* ==========================================================================
+   3. Mobile and Tablet Breakpoints for Full Responsiveness
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .bento-container {
+    grid-template-columns: repeat(2, 1fr); /* Drop down to 2 columns on tablets */
+    grid-auto-rows: 220px;
+  }
+
+  /* Flatten specific grid instructions for clean stacking flow */
+  .main-about, .student-life, .ict-lab, .workshop-vertical, .classroom-wide, .modern-equipment {
+    grid-column: unset !important;
+    grid-row: unset !important;
+  }
+  
+  .workshop-vertical {
+    grid-row: span 2; /* Keep its distinctive long vertical structure */
+  }
+}
+
+@media (max-width: 650px) {
+  .bento-container {
+    grid-template-columns: 1fr; /* Absolute single column stack on mobile layouts */
+    grid-auto-rows: auto;
+    gap: 16px;
+  }
+
+  .bento-card {
+    min-height: 240px;
+    border-radius: 20px;
+  }
+
+  .text-card {
+    padding: 1.75rem;
+  }
+
+  .workshop-vertical {
+    grid-row: unset;
+  }
+}
