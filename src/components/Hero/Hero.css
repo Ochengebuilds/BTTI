@@ -1,30 +1,51 @@
 /* ==========================================================================
-   1. Desktop Layout & Premium 3D Depth Aesthetics
+   1. Immersive Full-Screen 3D Base Layout
    ========================================================================== */
 .hero-section {
-  width: 100%;
-  max-width: 1240px;
-  margin: 110px auto 20px auto; /* Leave precise spacing for our floating glass navbar */
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.hero-banner-wrapper {
   position: relative;
   width: 100%;
-  height: 75vh;
-  min-height: 520px;
-  border-radius: 28px; /* High-end rounded canvas look matching SOSH.jpg */
+  height: 100vh; /* Fills the exact viewport height */
+  display: flex;
+  align-items: center; /* Vertically centers the left text block */
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12); /* Layered depth shadow */
+  background-color: #000000;
 }
 
-.hero-bg-image {
+/* ==========================================================================
+   2. Hardware-Accelerated Smooth Crossfade Slider
+   ========================================================================== */
+.hero-slider-container {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  z-index: 1;
 }
 
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.03); /* Subtle 3D scale reset */
+  transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), 
+              transform 5s linear; /* Ultra smooth continuous depth zoom */
+  z-index: 1;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1); /* Smooth slow zooming effect over 5 seconds */
+  z-index: 2;
+}
+
+/* Subtle dark gradient overlay layer */
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -32,129 +53,125 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.65) 100%
+    90deg,
+    rgba(15, 23, 42, 0.85) 0%,
+    rgba(15, 23, 42, 0.4) 100%
   );
+  z-index: 3;
 }
 
-.hero-content-card {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+/* ==========================================================================
+   3. Content Positioning (Aligned Left)
+   ========================================================================== */
+/* ==========================================================================
+   3. Content Positioning (Aligned Left & Pushed Down from Navbar)
+   ========================================================================== */
+.hero-container {
+  position: relative;
   width: 100%;
-  padding: 4rem;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
   box-sizing: border-box;
+  z-index: 4; /* Floats high above the background images and overlays */
+  
+  /* Pushes the content container down so text clears the 20px top + navbar height */
+  padding-top: 140px; 
+}
+
+.hero-content-left {
+  max-width: 650px; /* Constrains text layout beautifully on desktop */
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
   color: #ffffff;
 }
-
 .hero-main-title {
-  font-size: clamp(2.2rem, 4.5vw, 3.8rem); /* Completely fluid text sizing for SEO/responsiveness */
-  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 3rem); /* Fluid responsive scaling */
+  font-weight: 800;
   line-height: 1.15;
-  max-width: 750px;
   margin: 0;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-.hero-subtext-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-  max-width: 900px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 1.5rem;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .hero-description {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
   margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .hero-cta-container {
   display: flex;
-  gap: 1rem;
-  margin-top: 0.5rem;
+  gap: 1.25rem;
 }
 
-/* Button Layouts with Subtle 3D elevations */
+/* ==========================================================================
+   4. Tactile Elevating CTA Controls
+   ========================================================================== */
 .btn-primary, .btn-secondary {
-  padding: 0.85rem 2.2rem;
+  padding: 1rem 2.5rem;
   font-weight: 600;
-  border-radius: 12px;
+  border-radius: 14px;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  text-align: center;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary {
-  background-color: #3b82f6; /* Modern Blue Accent */
+  background-color: #3b82f6;
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35),
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4),
               inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+  transform: translateY(-3px);
+  background-color: #2563eb;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.6);
 }
 
 .btn-secondary {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* ==========================================================================
-   2. Media Queries for Seamless Mobile Responsiveness
+   5. Mobile Adaptation Breakpoints
    ========================================================================== */
-@media (max-width: 900px) {
-  .hero-content-card {
-    padding: 2.5rem;
-  }
-  
-  .hero-subtext-grid {
-    grid-template-columns: 1fr; /* Drop to 1 column on smaller tablets */
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero-section {
-    margin-top: 76px; /* Snaps flush right below mobile navbar */
-    padding: 0 12px;
-  }
-  
-  .hero-banner-wrapper {
-    height: 80vh; /* Gives extra vertical room for stacked elements */
-    border-radius: 20px;
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 0 24px;
+    /* Pushes text down below the solid mobile navbar header block */
+    padding-top: 110px; 
   }
 
-  .hero-content-card {
-    padding: 1.5rem;
-    gap: 1.2rem;
+  .hero-content-left {
+    max-width: 100%;
+    gap: 1.5rem;
   }
 
   .hero-cta-container {
     flex-direction: column;
     width: 100%;
+    gap: 1rem;
   }
 
   .btn-primary, .btn-secondary {
-    text-align: center;
     width: 100%;
     box-sizing: border-box;
+    padding: 0.9rem 2rem;
   }
 }
