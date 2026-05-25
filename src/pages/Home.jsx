@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/Hero/Hero';
 import FeatureGrid from '../components/FeatureGrid/FeatureGrid';
 import Announcements from '../components/Announcements/Announcements';
+import SocialFeeds from '../components/SocialFeeds/SocialFeeds';
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Hero />
       <FeatureGrid />
       <Announcements />
+      <SocialFeeds />
     </main>
   );
 };
