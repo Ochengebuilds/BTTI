@@ -13,7 +13,7 @@ const ICTCourse = () => {
 
   return (
     <>
-      <main style={{ width: '100%', overflow: 'hidden', background: '#ffffff' }}>
+      <main className="fade-in-canvas" style={{ width: '100%', overflow: 'hidden', background: '#ffffff' }}>
         <CourseHero />
         <ClassroomGallery />
         <CourseCurriculum />
