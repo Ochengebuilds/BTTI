@@ -1,0 +1,278 @@
+/* ==========================================================================
+   1. Homepage Grid Container Setup
+   ========================================================================== */
+.discover-section {
+  width: 100%;
+  max-width: 1240px;
+  margin: 80px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.discover-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.discover-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.discover-section-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.6rem 0;
+  letter-spacing: -0.5px;
+}
+
+.discover-section-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ==========================================================================
+   2. 3D Card Structural Mechanics
+   ========================================================================== */
+.discover-3d-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  perspective: 1200px;
+}
+
+.discover-glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.04);
+  transform: rotateY(-3deg) scale(0.99);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.discover-glass-card:hover {
+  transform: translateY(-8px) rotateY(0deg) scale(1.02);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1);
+}
+
+/* ==========================================================================
+   3. Card Graphical Frames
+   ========================================================================== */
+.discover-image-frame {
+  width: 100%;
+  height: 230px;
+  position: relative;
+  overflow: hidden;
+}
+
+.discover-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.discover-glass-card:hover .discover-card-img {
+  transform: scale(1.08);
+}
+
+.discover-card-tag {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.discover-card-details {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.discover-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.75rem 0;
+}
+
+.discover-card-summary {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0 0 1.75rem 0;
+  flex-grow: 1;
+}
+
+.discover-read-more-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #3b82f6;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  transition: color 0.2s ease;
+}
+
+.discover-read-more-btn span {
+  transition: transform 0.2s ease;
+}
+
+.discover-read-more-btn:hover {
+  color: #1d4ed8;
+}
+
+.discover-read-more-btn:hover span {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   4. Dynamic Blog Subpage Layout 
+   ========================================================================== */
+.blog-page-view {
+  width: 100%;
+  background: #f8fafc;
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  animation: fadeInLayout 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInLayout {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.blog-container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.back-home-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+}
+
+.back-home-btn:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+.blog-hero-wrapper {
+  width: 100%;
+  height: 380px;
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.blog-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 26, 0.85) 15%, rgba(0, 0, 0, 0.1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
+.blog-tag {
+  color: #3b82f6;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.blog-main-title {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.blog-body-content {
+  padding: 0 1rem;
+}
+
+.blog-intro-lead {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #1e293b;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.blog-text-paragraph {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #475569;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   5. Fluid Responsive Intercept Media Queries
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .discover-3d-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .discover-3d-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .blog-main-title {
+    font-size: 1.8rem;
+  }
+  
+  .blog-hero-overlay {
+    padding: 1.5rem;
+  }
+}

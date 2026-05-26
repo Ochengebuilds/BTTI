@@ -5,12 +5,14 @@ import Announcements from '../components/Announcements/Announcements';
 import SocialFeeds from '../components/SocialFeeds/SocialFeeds';
 import StatsBanner from '../components/StatsBanner/StatsBanner';
 import Testimonials from '../components/Testimonials/Testimonials';
+import DiscoverGrid from '../components/DiscoverGrid/DiscoverGrid';
 
 const Home = () => {
   return (
     <main>
       <Hero />
       <StatsBanner />
+      <DiscoverGrid />
       <FeatureGrid />
       <Announcements />
       <SocialFeeds />
