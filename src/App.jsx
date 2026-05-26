@@ -7,6 +7,7 @@ import About from './pages/About';
 import Academics from './pages/Academics';
 import Contact from './pages/Contact';
 import Admissions from './pages/Admissions'; // 1. Add this import
+import ICTCourse from './pages/ICTCourse'; // Import the new layout view
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/academics" element={<Academics />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admissions" element={<Admissions />} /> {/* 2. Inject Route */}
+        <Route path="/courses/ict" element={<ICTCourse />} />
       </Routes>
       <Footer />
     </Router>

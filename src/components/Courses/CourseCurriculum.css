@@ -1,0 +1,110 @@
+.course-curriculum {
+  padding: 100px 20px;
+  background: #ffffff;
+}
+
+.curriculum-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.curriculum-header {
+  margin-bottom: 4rem;
+}
+
+.curriculum-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -1px;
+}
+
+.curriculum-accent-line {
+  width: 70px;
+  height: 5px;
+  background: #3b82f6;
+  border-radius: 3px;
+}
+
+/* Syllabus Grid Frame */
+.curriculum-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.curriculum-glass-node {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.01);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.curriculum-glass-node:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 20px 45px rgba(59, 130, 246, 0.06);
+}
+
+.module-stamp-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.module-stamp-num {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.07);
+  padding: 0.4rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(59, 130, 246, 0.12);
+}
+
+.curriculum-node-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e3a8a; /* Authoritative Deep Blue Heading */
+  margin: 0 0 2rem 0;
+}
+
+.curriculum-skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.curriculum-skills-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.skill-bullet-laser {
+  width: 7px;
+  height: 7px;
+  background: #3b82f6;
+  border-radius: 50%;
+  margin-top: 7px;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+}
+
+.skill-text-node {
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 960px) {
+  .curriculum-matrix-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
