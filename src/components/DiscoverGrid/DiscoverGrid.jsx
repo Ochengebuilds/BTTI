@@ -9,10 +9,10 @@ const DiscoverGrid = () => {
       id: "college-life",
       title: "College Life",
       tagline: "Vibrant Campus Experience",
-      homeImage: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80",
+      homeImage: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80",
       summary: "Explore student activities, co-curricular clubs, and our vibrant community life outside the standard lecture halls.",
       fullContent: {
-        bannerImage: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+        bannerImage: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
         introduction: "At Beacon Technical Training Institute, learning extends far beyond textbooks and lecture rooms. We believe in nurturing wholesome individuals by fostering a vibrant, inclusive campus life experience.",
         paragraphs: [
           "Our students engage in various clubs, sports, and cultural festivals throughout the academic calendar. From dramatic arts and music ensembles to intense inter-college football tournaments, there is a space for every talent to thrive.",
