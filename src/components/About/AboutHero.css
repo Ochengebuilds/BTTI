@@ -1,0 +1,104 @@
+.about-hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.about-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.about-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.8) 0%,
+    rgba(30, 41, 59, 0.5) 100%
+  );
+}
+
+.about-hero-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+  perspective: 1000px;
+}
+
+/* 3D Glassmorphic Floating Title Card */
+.about-hero-3d-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 3rem;
+  border-radius: 24px;
+  max-width: 550px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: rotateY(-6deg) rotateX(4deg);
+  transition: transform 0.4s ease;
+}
+
+.about-hero-3d-card:hover {
+  transform: rotateY(0deg) rotateX(0deg) translateY(-5px);
+}
+
+.about-hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  letter-spacing: -1px;
+}
+
+.about-title-bar {
+  width: 80px;
+  height: 5px;
+  background: #3b82f6;
+  border-radius: 3px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 12px #3b82f6;
+}
+
+.about-hero-tagline {
+  color: #e2e8f0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    height: 50vh;
+  }
+  .about-hero-3d-card {
+    transform: none !important;
+    padding: 2rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .about-title-bar {
+    margin: 0 auto 1.5rem auto;
+  }
+  .about-hero-title {
+    font-size: 2.3rem;
+  }
+}

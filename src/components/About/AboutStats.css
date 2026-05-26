@@ -1,0 +1,145 @@
+.about-stats {
+  padding: 80px 20px;
+  background: #f8fafc; /* Matches your core page canvas */
+  position: relative;
+  margin-top: -60px; /* Overlaps nicely with hero overlay */
+  z-index: 10;
+}
+
+.about-stats-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+/* ==========================================================================
+   Uniform Glassmorphic Card Surface
+   ========================================================================== */
+.stat-3d-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 24px;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.02),
+    0 20px 40px rgba(15, 23, 42, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+/* Sleek Lift & Dynamic Border Glow on Hover */
+.stat-3d-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--card-accent);
+  box-shadow: 
+    0 20px 40px rgba(15, 23, 42, 0.08),
+    0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Ambient Radial Mesh Layer */
+.stat-glow-mesh {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 120%,
+    var(--card-accent),
+    transparent 70%
+  );
+  opacity: 0;
+  mix-blend-mode: multiply;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.stat-3d-card:hover .stat-glow-mesh {
+  opacity: 0.07; /* Soft glow inside the card frame */
+}
+
+.stat-card-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Icon Shell */
+.stat-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  background: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+  font-size: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.stat-value {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #0f172a; /* Solid clean slate text */
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -1px;
+}
+
+/* Animated Responsive Accent Dividers */
+.stat-divider {
+  width: 35px;
+  height: 4px;
+  background: #e2e8f0;
+  margin: 0 auto 1.25rem auto;
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.3s ease;
+}
+
+.stat-3d-card:hover .stat-divider {
+  width: 65px;
+  background-color: var(--card-accent);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   Media Queries For Layout Adapters
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .about-stats {
+    margin-top: -20px;
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .stat-3d-card {
+    padding: 2.5rem 1.5rem;
+  }
+}

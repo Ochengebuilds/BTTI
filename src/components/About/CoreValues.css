@@ -1,0 +1,196 @@
+/* ==========================================================================
+   1. Component Structural Wrapper
+   ========================================================================== */
+.core-values-section {
+  background: #0b1329; /* High-contrast deep cosmic navy base */
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient 3D Neon Background Mesh Lights */
+.values-mesh-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.values-mesh-glow.position-1 {
+  top: 10%;
+  left: -10%;
+  background: #3b82f6;
+}
+
+.values-mesh-glow.position-2 {
+  bottom: 5%;
+  right: -5%;
+  background: #10b981;
+}
+
+.core-values-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   2. Sticky Left Header Column
+   ========================================================================== */
+.values-heading-column {
+  position: skicky;
+  position: -webkit-sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.values-pretitle {
+  color: #3b82f6;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.values-main-title {
+  color: #ffffff;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -1px;
+}
+
+.values-accent-glow-line {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: 2px;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.values-side-summary {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ==========================================================================
+   3. Elevated 3D Glass Stack cards
+   ========================================================================== */
+.values-stack-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  perspective: 1000px;
+}
+
+.value-3d-glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 24px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  
+  /* Initial 3D transformation plane orientation */
+  transform: rotateX(4deg) rotateY(-4deg) translateZ(0);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.value-3d-glass-card:hover {
+  transform: rotateX(0deg) rotateY(0deg) translateY(-6px) translateZ(15px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.value-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.value-index-number {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.value-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.value-card-body {
+  color: #cbd5e1;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 3.7rem; /* Indents body content cleanly beneath title frame */
+}
+
+/* Sub-card interactive bottom laser lines */
+.value-card-border-glow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  transition: width 0.4s ease;
+}
+
+.value-3d-glass-card:hover .value-card-border-glow {
+  width: 100%;
+}
+
+/* ==========================================================================
+   4. Component Layout Intercept Media Rules
+   ========================================================================== */
+@media (max-width: 960px) {
+  .core-values-container {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  .values-heading-column {
+    position: static;
+  }
+  .value-3d-glass-card {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .values-main-title {
+    font-size: 2.2rem;
+  }
+  .value-card-header {
+    gap: 1rem;
+  }
+  .value-card-body {
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+}
