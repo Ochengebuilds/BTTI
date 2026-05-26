@@ -11,7 +11,7 @@ const SocialFeeds = () => {
           <h2 className="feed-title">Follow us on YouTube</h2>
           <div className="video-wrapper">
             <iframe
-              src="https://youtube/CwuBK8U94EA?si=X6L_V7aIhUITD3zP" /* Replace with your actual BTTI video embed link code */
+              src="https://www.youtube.com/embed/CwuBK8U94EA" /* Replace with your actual BTTI video embed link code */
               title="Beacon Technical Training Institute Overview Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -25,7 +25,7 @@ const SocialFeeds = () => {
           <h2 className="feed-title">Follow us on Facebook</h2>
           <div className="facebook-wrapper">
             <iframe 
-              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBeaconTechnical&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"S 
               width="100%" 
               height="100%" 
               style={{ border: 'none', overflow: 'hidden' }} 

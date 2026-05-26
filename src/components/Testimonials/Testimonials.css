@@ -1,0 +1,234 @@
+/* ==========================================================================
+   1. Main Layout & Scaffolding
+   ========================================================================== */
+.testimonials-section {
+  width: 100%;
+  max-width: 1240px;
+  margin: 60px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.testimonials-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.testimonials-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.testimonials-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ==========================================================================
+   2. Slider Layout Framework
+   ========================================================================== */
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 850px;
+  gap: 2rem;
+  position: relative;
+  perspective: 1000px; /* Establishes a distinct 3D environment space */
+}
+
+/* ==========================================================================
+   3. Tactile 3D Glassmorphism Card
+   ========================================================================== */
+.testimonial-3d-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 28px;
+  padding: 3rem;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Prevents the default vertical page scroll while a user is performing a horizontal swipe gesture */
+  touch-action: pan-y; 
+  cursor: grab;
+  
+  /* Suspended 3D depth lighting parameters */
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.05),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  
+  /* Micro tilt adjustments */
+  transform: rotateX(2deg);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.testimonial-3d-card:hover {
+  transform: translateY(-5px) rotateX(0deg);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.09);
+}
+.testimonial-3d-card:active {
+  cursor: grabbing;
+}
+
+/* ==========================================================================
+   4. Profile Avatar Graphics
+   ========================================================================== */
+.student-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.avatar-glow-ring {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.student-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+.student-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.student-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.student-course {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #3b82f6;
+}
+
+/* ==========================================================================
+   5. Typography Blockquotes
+   ========================================================================== */
+.testimonial-quote-block {
+  position: relative;
+}
+
+.quote-mark {
+  font-size: 5rem;
+  font-family: serif;
+  line-height: 1;
+  position: absolute;
+  top: -25px;
+  left: -10px;
+  color: rgba(59, 130, 246, 0.15);
+  user-select: none;
+}
+
+.student-quote {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   6. Custom Navigation Controls
+   ========================================================================== */
+.nav-btn {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.nav-btn:hover {
+  background: #3b82f6;
+  color: #ffffff;
+  border-color: #3b82f6;
+  transform: scale(1.08);
+}
+
+.slider-dots {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.dot.active {
+  background: #3b82f6;
+  width: 24px;
+  border-radius: 5px;
+}
+
+/* ==========================================================================
+   7. Fluid Adaptive Viewport Rules
+   ========================================================================== */
+@media (max-width: 768px) {
+  .testimonial-3d-card {
+    padding: 2rem;
+    border-radius: 20px;
+  }
+  
+  .student-quote {
+    font-size: 1rem;
+  }
+
+  .nav-btn {
+    display: none; /* Hide wide arrow triggers on mobile viewports for swipe access */
+  }
+}
