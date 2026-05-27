@@ -34,22 +34,33 @@
 }
 
 /* ==========================================================================
-   3. Brand Logo Identity
+   3. Brand Logo Identity Layout
    ========================================================================== */
-.navbar-logo a {
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: #0f172a;
-  text-decoration: none;
-  letter-spacing: -0.5px;
+.navbar-logo {
+  display: flex;
+  align-items: center;
 }
 
-.navbar-logo a span {
-  color: #3b82f6;
+.navbar-logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo-img:hover {
+  transform: scale(1.03);
 }
 
 /* ==========================================================================
-   4. Desktop Layout Setup
+   4. Desktop Navigation Matrix Layout Configuration
    ========================================================================== */
 .nav-links {
   list-style: none;
@@ -72,7 +83,7 @@
   color: #3b82f6;
 }
 
-/* Dropdown Wrapper & Trigger Nodes */
+/* Dropdown Alignment Nodes */
 .nav-links li.nav-dropdown-wrapper {
   position: relative;
   display: inline-flex;
@@ -93,6 +104,12 @@
 
 .nav-dropdown-trigger:hover {
   color: #3b82f6;
+}
+
+/* Active Highlight Styles */
+.nav-dropdown-wrapper.active-route .nav-dropdown-trigger {
+  color: #3b82f6 !important;
+  font-weight: 700;
 }
 
 .dropdown-arrow {
@@ -123,8 +140,6 @@
   
   min-width: 340px;
   padding: 0.8rem;
-  
-  /* CHANGE 1: Pull it up slightly so there's no air gap beneath the navbar link */
   margin-top: 5px; 
   
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
@@ -138,14 +153,16 @@
   transition: opacity 0.3s ease, 
               transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* The Invisible Bridge Layer to counteract mouse exit drops */
 .courses-glass-dropdown::before {
   content: '';
   position: absolute;
-  top: -25px; /* Extends up to bridge any physical layout gap safely */
+  top: -25px;
   left: 0;
   width: 100%;
   height: 25px;
-  background: transparent; /* Completely invisible to the user */
+  background: transparent;
 }
 
 .courses-glass-dropdown.show {
@@ -154,6 +171,7 @@
   transform: translateX(-50%) rotateX(0deg) scale(1);
 }
 
+/* Sub-Link Item Rows */
 .dropdown-item-link {
   text-decoration: none !important;
   padding: 0.85rem 1.2rem;
@@ -173,6 +191,12 @@
   background: rgba(59, 130, 246, 0.06);
 }
 
+.dropdown-item-link.active-sub-link {
+  color: #1e3a8a !important;
+  background: rgba(59, 130, 246, 0.08);
+}
+
+/* Laser Micro-Interaction */
 .item-hover-laser {
   position: absolute;
   left: 0;
@@ -185,11 +209,12 @@
   border-radius: 0 4px 4px 0;
 }
 
-.dropdown-item-link:hover .item-hover-laser {
+.dropdown-item-link:hover .item-hover-laser,
+.dropdown-item-link.active-sub-link .item-hover-laser {
   transform: scaleY(1);
 }
 
-/* Mobile Hamburger Toggle Button Shell (Hidden on Desktop by default) */
+/* Mobile Toggles Layout */
 .mobile-menu-toggle {
   display: none;
   flex-direction: column;
@@ -218,14 +243,17 @@
 
   .navbar-container {
     padding: 12px 24px;
-    border-radius: 30px; /* Adapts into a tighter mobile pill capsule */
+    border-radius: 30px;
+  }
+
+  .nav-logo-img {
+    height: 32px;
   }
 
   .mobile-menu-toggle {
     display: flex;
   }
 
-  /* Morphing hamburger lines into a close 'X' when active */
   .mobile-menu-toggle.toggle-active .hamburger-bar:nth-child(1) {
     transform: translateY(7.5px) rotate(45deg);
   }
@@ -236,7 +264,7 @@
     transform: translateY(-7.5px) rotate(-45deg);
   }
 
-  /* Transforming the horizontal navigation row into a sliding glass panel drawer */
+  /* Converting nav-links container block into a slide-down mobile panel drawer */
   .nav-links {
     position: absolute;
     top: calc(100% + 12px);
@@ -254,7 +282,6 @@
     gap: 1rem;
     box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
     
-    /* Initially hidden and shifted downward */
     opacity: 0;
     transform: translateY(15px);
     pointer-events: none;
@@ -279,7 +306,6 @@
     border: 1px solid rgba(241, 245, 249, 0.8);
   }
 
-  /* Adjusting Dropdown items for mobile layout */
   .nav-links li.nav-dropdown-wrapper {
     flex-direction: column;
     align-items: stretch;
@@ -295,7 +321,7 @@
     box-sizing: border-box;
   }
 
-  /* Converting dropdown from absolute float menu into an expanding accordion drawer */
+  /* Flattening out the floating 3D matrix tray into a flexible native mobile accordion */
   .courses-glass-dropdown {
     position: static;
     transform: none !important;
@@ -308,14 +334,13 @@
     padding: 0;
     margin-top: 0;
     
-    /* Clean collapse transition metrics */
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
   }
 
   .courses-glass-dropdown.show {
-    max-height: 400px; /* Permits smooth scrolling/expansion room for accordion rows */
+    max-height: 400px;
     padding: 8px 0 0 12px;
   }
 
@@ -331,11 +356,11 @@
   }
 
   .item-hover-laser {
-    display: none; /* Disables micro desktop lasers on compact touch screen views */
+    display: none;
   }
 }
 
-/* Background mask element rule layer */
+/* Background safety overlay layer shield mask */
 .drawer-overlay-shield {
   position: fixed;
   top: 0;

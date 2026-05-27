@@ -9,10 +9,12 @@ import Contact from './pages/Contact';
 import Admissions from './pages/Admissions'; // 1. Add this import
 // import ICTCourse from './pages/ICTCourse'; // Import the new layout view
 import CourseTemplate from './pages/CourseTemplate';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

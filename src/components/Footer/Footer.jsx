@@ -4,6 +4,9 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import './Footer.css';
 
+// 1. Import your dynamic brand assets bundle from its relative path
+import { azzets } from '../../assets/assets.js';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -13,8 +16,9 @@ const Footer = () => {
         
         {/* Column 1: Brand & Identity */}
         <div className="footer-column brand-column">
+          {/* 2. Swapped text for the structured, clean image module */}
           <div className="footer-logo">
-            BTTI<span>.</span>
+            <img src={azzets.logo} alt="BTTI Logo" className="footer-logo-img" />
           </div>
           <p className="brand-tagline">
             Empowering technical minds and crafting future leaders with industry-ready practical skills.

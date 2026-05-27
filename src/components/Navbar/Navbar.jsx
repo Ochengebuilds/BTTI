@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
+
+// 1. IMPORT LOGO GRAPHIC DIRECTLY FOR VITE COMPILATION SAFETY
+// Line 6 of Navbar.jsx - Update the path to reference the file accurately
+import { azzets } from '../../assets/assets.js'; 
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownActive, setDropdownActive] = useState(false);
+  const location = useLocation();
+
+  // Tracks if the active browser route is anywhere inside the /courses path directory
+  const isCoursesPage = location.pathname.startsWith('/courses');
 
   const departments = [
     { name: "Information Communication Technology", path: "/courses/ict" },
@@ -14,7 +22,7 @@ const Navbar = () => {
     { name: "Fashion and Design", path: "/courses/fashion" }
   ];
 
-  // Helper to cleanly close out menus upon navigating paths
+  // Clean state reset utility whenever an option is clicked
   const handleNavigation = () => {
     setMenuOpen(false);
     setDropdownActive(false);
@@ -24,9 +32,11 @@ const Navbar = () => {
     <div className="navbar-wrapper">
       <nav className="navbar-container">
         
-        {/* Brand Logo */}
+        {/* Brand Graphic Logo Container */}
         <div className="navbar-logo">
-          <Link to="/" onClick={handleNavigation}>BTTI<span>.</span></Link>
+          <Link to="/" onClick={handleNavigation}>
+            <img src={azzets.logo} alt="BTTI Logo" className="nav-logo-img" />
+          </Link>
         </div>
         
         {/* Mobile Hamburger Toggle Icon Button */}
@@ -49,9 +59,9 @@ const Navbar = () => {
             <Link to="/about" onClick={handleNavigation}>About</Link>
           </li>
           
-          {/* Courses Dropdown Accordion Item */}
+          {/* Courses Dropdown Accordion Item with active highlighting logic */}
           <li 
-            className="nav-dropdown-wrapper"
+            className={`nav-dropdown-wrapper ${isCoursesPage ? 'active-route' : ''}`}
             onMouseEnter={() => window.innerWidth > 960 && setDropdownActive(true)}
             onMouseLeave={() => window.innerWidth > 960 && setDropdownActive(false)}
             onClick={() => window.innerWidth <= 960 && setDropdownActive(!dropdownActive)}
@@ -60,13 +70,13 @@ const Navbar = () => {
               Courses <span className={`dropdown-arrow ${dropdownActive ? 'open' : ''}`}>▼</span>
             </span>
             
-            {/* Glass Dropdown Tray Layout */}
+            {/* Glass Dropdown Tray Layout featuring the 3D-rotation animations */}
             <div className={`courses-glass-dropdown ${dropdownActive ? 'show' : ''}`}>
               {departments.map((dept, index) => (
                 <Link 
                   key={index} 
                   to={dept.path} 
-                  className="dropdown-item-link"
+                  className={`dropdown-item-link ${location.pathname === dept.path ? 'active-sub-link' : ''}`}
                   onClick={handleNavigation}
                 >
                   <div className="item-hover-laser"></div>

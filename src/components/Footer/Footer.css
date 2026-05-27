@@ -34,10 +34,15 @@
 }
 
 .footer-logo {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.footer-logo-img {
+  height: 50px;       /* Keeps it perfectly proportioned to match your layout grid */
+  width: auto;        /* Automatically keeps the aspect ratio from stretching */
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)); /* Premium layout shadow depth */
 }
 
 .footer-logo span {
