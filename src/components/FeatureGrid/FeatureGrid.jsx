@@ -1,6 +1,9 @@
 import React from 'react';
 import './FeatureGrid.css';
 
+// 1. IMPORT YOUR CENTRALIZED AZZETS OBJECT
+import { azzets } from '../../assets/assets.js';
+
 const FeatureGrid = () => {
   return (
     <section className="bento-section" id="about">
@@ -18,7 +21,7 @@ const FeatureGrid = () => {
         {/* Block 2: Image Card - Students */}
         <div className="bento-card img-card student-life">
           <img 
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" 
+            src={azzets.features.studentLife} 
             alt="Students collaborating on projects at Beacon Technical Training College" 
             loading="lazy"
           />
@@ -27,7 +30,7 @@ const FeatureGrid = () => {
         {/* Block 3: Image Card with Overlay Text - ICT Labs */}
         <div className="bento-card img-card ict-lab">
           <img 
-            src="https://images.unsplash.com/photo-1562813733-b31f71025d54?auto=format&fit=crop&w=600&q=80" 
+            src={azzets.features.ictLab} 
             alt="Modern computer laboratory equipment for ICT students" 
             loading="lazy"
           />
@@ -39,7 +42,7 @@ const FeatureGrid = () => {
         {/* Block 4: Long Vertical Image Card - Engineering Workshop */}
         <div className="bento-card img-card workshop-vertical">
           <img 
-            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=100" 
+            src={azzets.features.workshop} 
             alt="Hands-on training in Electrical and Electronics Engineering workshop" 
             loading="lazy"
           />
@@ -51,7 +54,7 @@ const FeatureGrid = () => {
         {/* Block 5: Wide Horizontal Image Card - Classroom Environment */}
         <div className="bento-card img-card classroom-wide">
           <img 
-            src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80" 
+            src={azzets.features.classroom} 
             alt="Modern interactive study lecture halls" 
             loading="lazy"
           />

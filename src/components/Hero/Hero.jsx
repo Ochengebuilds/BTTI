@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 
+// 1. IMPORT YOUR CENTRALIZED AZZETS MODULE
+import { azzets } from '../../assets/assets.js';
+
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Array of 3 high-quality educational stock images
-  const slides = [
-    "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80"
-  ];
+  // 2. REFERENCE THE SLIDESHOW ARRAY DIRECTLY FROM YOUR UTILITY FILE
+  const slides = azzets.heroSlides || [];
 
   // Smoothly cycle slides every 5 seconds
   useEffect(() => {
+    if (slides.length === 0) return; // Guard clause in case the array is empty
+
     const slideInterval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 5000);

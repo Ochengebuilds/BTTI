@@ -11,7 +11,7 @@ const SocialFeeds = () => {
           <h2 className="feed-title">Follow us on YouTube</h2>
           <div className="video-wrapper">
             <iframe
-              src="https://www.youtube.com/embed/CwuBK8U94EA" /* Replace with your actual BTTI video embed link code */
+              src="https://www.youtube.com/embed/X1c3jwasDTc" /* Replace with your actual BTTI video embed link code */
               title="Beacon Technical Training Institute Overview Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -39,6 +39,7 @@ const Navbar = () => {
           </Link>
         </div>
         
+        
         {/* Mobile Hamburger Toggle Icon Button */}
         <div 
           className={`mobile-menu-toggle ${menuOpen ? 'toggle-active' : ''}`}
